@@ -27,6 +27,8 @@ if disp_button: # al hacer clic en el botón
     
     # crear un grafico de dispersion  
     fig_disp = px.scatter(car_data, x="odometer", y="price") # crear un gráfico de dispersión
+    
+    # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig_disp, use_container_width=True)
     
 agree = st.checkbox("Se completo el Sprint 6")
