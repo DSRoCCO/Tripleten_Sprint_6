@@ -7,31 +7,29 @@ st.header('Sprint 6: Prueba de Deploy desde Github y Render')
 st.write('Esta aplicacion es un proyecto prueba para ver el uso de aplicacion web para mostrar algunos procesos de los cientificos de datos.')
 
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
-hist_button_hist = st.button('Construir histograma') # crear un botón
+hist_button = st.button('Construir histograma') # crear un botón
 
-if hist_button_hist: # al hacer clic en el botón
+if hist_button: # al hacer clic en el botón
     # escribir un mensaje
     st.write('Creación de un histograma, para el conjunto de datos de anuncios de venta de coches')
     
     # crear un histograma
-    fig = px.histogram(car_data, x="odometer")
+    fig_hist = px.histogram(car_data, x="odometer")
 
     # mostrar un gráfico Plotly interactivo
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig_hist, use_container_width=True)
 
-hist_button_disp = st.button('Construir grafico de dispersion') # crear un botón
+disp_button = st.button('Construir grafico de dispersion') # crear un botón
 
-if hist_button_disp: # al hacer clic en el botón
+if disp_button: # al hacer clic en el botón
     # escribir un mensaje
-    st.write('Creación de un histograma, para el conjunto de datos de anuncios de venta de coches')
+    st.write('Creación de un grafico de dispersion, para el conjunto de datos de anuncios de venta de coches')
     
-    # crear un histograma
-    fig = px.histogram(car_data, x="odometer")
+    # crear un grafico de dispersion  
+    fig_disp = px.scatter(car_data, x="odometer", y="price") # crear un gráfico de dispersión
+    st.plotly_chart(fig_disp, use_container_width=True)
+    
+agree = st.checkbox("Se completo el Sprint 6")
 
-    # mostrar un gráfico Plotly interactivo
-    st.plotly_chart(fig, use_container_width=True)
-    
-    fig = px.scatter(car_data, x="odometer", y="price") # crear un gráfico de dispersión
-    st.plotly_chart(fig, use_container_width=True)
-    
-    
+if agree:
+    st.write("Great!")
